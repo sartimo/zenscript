@@ -61,10 +61,27 @@ function Install {
    # write-host "$($application.ApplicationName) has the binaryLocation: $($application.BinaryLocation) and the flags: $($application.InstallFlags)"
   }#>
   
+  # clear teh screen
+  [System.Console]::Clear()
+  
   # INstall and configure Applications and Scripts isolatedly
   foreach ($application in $Applications) {
     if ($application.Type -eq "Application") {
-    
+      Write-Host "Installing application: ${application.ApplicationName}"
+      
+      # download the binary and store it in %TEMP%
+      Invoke-WebRequest -URI $application.BinaryLocation -OutFile %TEMP%\$application.ApplicationName
+      
+      # if application does not have installationflags
+      if ($application.InstallationFlags -eq "") {
+        Start-Process -Path %TEMP%\$application.ApplicationName
+      }
+      
+      # start installer with InstallationFlags
+      Start-Process -Path %TEMP%\$application.ApplicationName -ArgumentList $application.InstallationFlags
+
+      # after it is done, remove %TEMP%\$application.ApplicationName
+      Remove-Item -path %TEMP%\$application.ApplicationName -Force
     }
     
     if ($application.Type -eq "Script") {
