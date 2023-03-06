@@ -10,7 +10,7 @@
       "id":2,
       "Type": "Script",
       "ScriptName": "Import Sample Registries",
-      "Script": "echo 'blabla' >> file.reg && reg import .\file.reg"
+      "Script": "echo 'blabla' >> file.reg && reg import .\file.reg",
       "ScriptFlags": ""
    }
 ]
