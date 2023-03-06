@@ -56,12 +56,14 @@ function Install {
   Write-Host "Found the following applications to install: "
   $Applications | Format-Table
   
+  Read-Host -Prompt "Press any key to continue..."
+
   # Testing JSON Objects
   <#foreach ($application in $Applications) {
    # write-host "$($application.ApplicationName) has the binaryLocation: $($application.BinaryLocation) and the flags: $($application.InstallFlags)"
   }#>
   
-  # clear teh screen
+  # clear the screen
   [System.Console]::Clear()
   
   # INstall and configure Applications and Scripts isolatedly
