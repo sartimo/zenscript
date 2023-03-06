@@ -12,5 +12,5 @@
       "ScriptName": "Import Sample Registries",
       "Script": "echo 'blabla' >> file.reg && reg import .\file.reg"
       "ScriptFlags": ""
-   },   
+   }
 ]
