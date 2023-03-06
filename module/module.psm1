@@ -72,7 +72,7 @@ function Install {
       Write-Host "Installing application: ${application.ApplicationName}"
       
       # download the binary and store it in %TEMP%
-      Invoke-WebRequest -URI $application.BinaryLocation -OutFile %TEMP%\$application.ApplicationName
+      Invoke-WebRequest -URI $application.BinaryLocation -OutFile %TEMP%\$application.ApplicationName -UseBasicParsing
       
       # if application does not have installationflags
       if ($application.InstallationFlags -eq "") {
@@ -86,7 +86,7 @@ function Install {
       Remove-Item -path %TEMP%\$application.ApplicationName -Force
     }
     
-    if ($application.Type -eq "Script") {
+    if ($application.Type -eq"Script") {
     
     }
   }
