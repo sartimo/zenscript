@@ -42,12 +42,14 @@ function Add-LocalGroup {
 ########################## Distribution ############################
 ####################################################################
 # installs software and configurs them from a configuration file
-# callable: InstallFrom("C:\test\software.cfg")
+# callable: InstallFrom("C:\test\installation.json")
 function InstallFrom {
   param(
     [string[]] $InstallationFile
   )
   
   Write-Host "${InstallationFile} is set as installation source..."
+  # parse JSONfile with installation metadata from here on
 }
+
 
