@@ -60,6 +60,17 @@ function Install {
   <#foreach ($application in $Applications) {
    # write-host "$($application.ApplicationName) has the binaryLocation: $($application.BinaryLocation) and the flags: $($application.InstallFlags)"
   }#>
+  
+  # INstall and configure Applications and Scripts isolatedly
+  foreach ($application in $Applications) {
+    if ($application.Type -eq "Application") {
+    
+    }
+    
+    if ($application.Type -eq "Script") {
+    
+    }
+  }
 }
 
 
